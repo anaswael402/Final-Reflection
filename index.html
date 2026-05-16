@@ -19,11 +19,8 @@
       --border-strong: rgba(0,0,0,0.18);
       --accent-green: #0f6e56;
       --accent-amber: #854f0b;
-      --accent-green-bg: #e1f5ee;
-      --accent-amber-bg: #faeeda;
       --radius-md: 8px;
       --radius-lg: 14px;
-      --progress-color: #1a1917;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -38,9 +35,6 @@
         --border-strong: rgba(255,255,255,0.16);
         --accent-green: #5dcaa5;
         --accent-amber: #ef9f27;
-        --accent-green-bg: #04342c;
-        --accent-amber-bg: #412402;
-        --progress-color: #f0ede8;
       }
     }
 
@@ -53,21 +47,19 @@
       line-height: 1.8;
     }
 
-    /* PROGRESS BAR */
     #progress-bar {
       position: fixed;
       top: 0; left: 0;
       height: 3px;
       width: 0%;
-      background: var(--progress-color);
+      background: var(--text-primary);
       z-index: 1000;
       transition: width 0.1s linear;
     }
 
-    /* STICKY TOC SIDEBAR — desktop only */
     .layout {
       display: flex;
-      max-width: 1050px;
+      max-width: 1060px;
       margin: 0 auto;
       padding: 0 1.5rem;
       gap: 3rem;
@@ -77,7 +69,7 @@
     .sidebar {
       position: sticky;
       top: 2rem;
-      width: 180px;
+      width: 175px;
       flex-shrink: 0;
       padding-top: 3rem;
     }
@@ -97,7 +89,7 @@
       text-decoration: none;
       padding: 0.3rem 0 0.3rem 0.75rem;
       border-left: 1.5px solid var(--border);
-      margin-bottom: 2px;
+      margin-bottom: 3px;
       transition: color 0.2s, border-color 0.2s;
       line-height: 1.5;
     }
@@ -118,7 +110,6 @@
       .layout { padding: 0; }
     }
 
-    /* MAIN CONTENT */
     .page {
       flex: 1;
       min-width: 0;
@@ -129,11 +120,10 @@
       .page { padding: 2rem 1.25rem 4rem; }
     }
 
-    /* FADE-IN ON SCROLL */
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .reveal.visible {
@@ -141,7 +131,6 @@
       transform: translateY(0);
     }
 
-    /* HEADER */
     .header {
       border-bottom: 0.5px solid var(--border-strong);
       padding-bottom: 2rem;
@@ -176,7 +165,6 @@
       text-underline-offset: 3px;
     }
 
-    /* MOBILE TOC */
     .mobile-toc {
       background: var(--surface-2);
       border-radius: var(--radius-lg);
@@ -209,7 +197,6 @@
 
     @media (min-width: 821px) { .mobile-toc { display: none; } }
 
-    /* BODY TEXT */
     .salutation {
       font-family: 'Playfair Display', serif;
       font-style: italic;
@@ -253,7 +240,6 @@
 
     a:hover { text-decoration-color: var(--text-primary); }
 
-    /* PULL QUOTE */
     .pull-quote {
       border-left: 2px solid var(--border-strong);
       padding: 0.6rem 1.1rem;
@@ -270,7 +256,37 @@
       color: var(--text-secondary);
     }
 
-    /* ASSIGNMENT CARDS */
+    .stat-row {
+      display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      background: var(--surface-2);
+      border-radius: var(--radius-md);
+      padding: 0.65rem 1rem;
+      text-align: center;
+      flex: 1;
+      min-width: 100px;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
     .card {
       background: var(--surface);
       border: 0.5px solid var(--border);
@@ -282,7 +298,7 @@
 
     .card:hover {
       border-color: var(--border-strong);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
 
     .card-num {
@@ -309,7 +325,6 @@
       line-height: 1.7;
     }
 
-    /* TOOL CARDS — expandable */
     .tool-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -320,7 +335,7 @@
     .tool-card {
       background: var(--surface-2);
       border-radius: var(--radius-md);
-      padding: 0.8rem 1rem;
+      padding: 0.85rem 1rem 2rem;
       cursor: pointer;
       border: 0.5px solid transparent;
       transition: border-color 0.2s, background 0.2s;
@@ -343,7 +358,7 @@
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     .verdict-like { color: var(--accent-green); }
@@ -352,21 +367,20 @@
     .tool-summary {
       font-size: 12px;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .tool-detail {
       font-size: 12.5px;
       color: var(--text-secondary);
-      line-height: 1.65;
-      max-height: 0;
+      line-height: 1.7;
       overflow: hidden;
-      transition: max-height 0.35s ease, margin-top 0.3s ease;
-      margin-top: 0;
+      max-height: 0;
+      transition: max-height 0.4s ease, margin-top 0.3s ease;
     }
 
     .tool-card.open .tool-detail {
-      max-height: 200px;
+      max-height: 400px;
       margin-top: 0.5rem;
     }
 
@@ -374,17 +388,17 @@
 
     .expand-hint {
       position: absolute;
-      bottom: 0.5rem;
-      right: 0.75rem;
-      font-size: 14px;
+      bottom: 0.6rem;
+      right: 0.8rem;
+      font-size: 16px;
       color: var(--text-muted);
       transition: transform 0.3s;
       line-height: 1;
+      font-weight: 300;
     }
 
     .tool-card.open .expand-hint { transform: rotate(45deg); }
 
-    /* CHANGE ITEMS */
     .change-item {
       display: flex;
       gap: 1.1rem;
@@ -404,7 +418,6 @@
 
     .change-item p { margin: 0; padding-top: 4px; }
 
-    /* SIGN OFF */
     .signoff {
       margin-top: 3rem;
       padding-top: 1.75rem;
@@ -426,38 +439,6 @@
       font-family: 'DM Sans', sans-serif;
     }
 
-    /* STAT BAR */
-    .stat-row {
-      display: flex;
-      gap: 1rem;
-      margin: 1.5rem 0;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      background: var(--surface-2);
-      border-radius: var(--radius-md);
-      padding: 0.65rem 1rem;
-      text-align: center;
-      flex: 1;
-      min-width: 100px;
-    }
-
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--text-primary);
-      display: block;
-    }
-
-    .stat-label {
-      font-size: 11px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
     @media (max-width: 540px) {
       .tool-grid { grid-template-columns: 1fr 1fr; }
       .stat-row { gap: 0.5rem; }
@@ -470,20 +451,18 @@
 
   <div class="layout">
 
-    <!-- SIDEBAR TOC — desktop -->
     <aside class="sidebar" aria-label="Table of contents">
       <p class="sidebar-label">Contents</p>
       <nav id="sidebar-nav">
         <a href="#learning" data-section="learning">Learning experiences</a>
         <a href="#work" data-section="work">Three things I created</a>
-        <a href="#changes" data-section="changes">What I'd change</a>
+        <a href="#changes" data-section="changes">What I would change</a>
         <a href="#who" data-section="who">Who should take this</a>
         <a href="#tools" data-section="tools">The digital tools</a>
         <a href="#intercultural" data-section="intercultural">Intercultural experiences</a>
       </nav>
     </aside>
 
-    <!-- MAIN -->
     <main class="page">
 
       <header class="header reveal">
@@ -494,13 +473,12 @@
         </p>
       </header>
 
-      <!-- MOBILE TOC -->
       <div class="mobile-toc reveal">
         <p class="mobile-toc-label">Contents</p>
         <ol>
           <li><a href="#learning">Learning experiences</a></li>
           <li><a href="#work">Three things I created</a></li>
-          <li><a href="#changes">What I'd change</a></li>
+          <li><a href="#changes">What I would change</a></li>
           <li><a href="#who">Who should take this</a></li>
           <li><a href="#tools">The digital tools</a></li>
           <li><a href="#intercultural">Intercultural experiences</a></li>
@@ -509,17 +487,16 @@
 
       <p class="salutation reveal">To whoever takes this course next,</p>
 
-      <p class="reveal">I'm writing this as someone who walked in thinking this was a soft elective and walked out with a TikTok video at 960,000 views, a clearer understanding of who I am in a conversation, and a genuine shift in how I think about technology. Let me tell you what actually moved the needle.</p>
+      <p class="reveal">I walked into this course thinking it was going to be an easy Global Studies course. I walked out with one TikTok video at 960k views and counting, a completely different relationship with AI, and a few things about myself I genuinely did not know before. Here is what actually happened.</p>
 
-      <!-- STATS -->
       <div class="stat-row reveal">
         <div class="stat">
-          <span class="stat-num">960K</span>
+          <span class="stat-num">960K+</span>
           <span class="stat-label">TikTok views</span>
         </div>
         <div class="stat">
-          <span class="stat-num">300→3,200</span>
-          <span class="stat-label">Followers gained</span>
+          <span class="stat-num">300 to 3,200</span>
+          <span class="stat-label">Followers in a month</span>
         </div>
         <div class="stat">
           <span class="stat-num">10,000</span>
@@ -531,72 +508,67 @@
         </div>
       </div>
 
-      <!-- PART 1 -->
       <span class="section-label reveal" id="learning">Part 1 — Most Impactful Learning Experiences</span>
       <h2 class="reveal">The moments that changed something</h2>
 
-      <p class="reveal"><strong>About myself:</strong> The Tahrir trip did something I didn't expect. We met students from abroad who had come to Egypt specifically to learn Arabic. I was excited, even a little proud, that someone wanted to learn my language. But the moment I opened my mouth, I couldn't get a full sentence out without dropping in English words. I had spoken Arabic my whole life and never noticed I couldn't do it cleanly. That hit hard. I went home and started a practice: one minute, one topic, fully in Arabic, no English. I posted the first video as an experiment. It passed 960,000 views. I went from 300 to over 3,200 followers. The Tahrir trip didn't teach me about intercultural exchange in theory — it exposed a blind spot I had about myself, and that exposure became the foundation of something real.</p>
+      <p class="reveal"><strong>About myself:</strong> The Tahrir trip is where it started. We were meeting students who came to Egypt just to learn Arabic, and I remember feeling this sense of pride, like wow, someone actually wants to learn my language. Then I tried to speak to them in Arabic and I could not get through a single sentence without throwing in English words. I have spoken Arabic my entire life. I grew up with it. And I had never once noticed that I could not speak it cleanly on its own. That bothered me. So I started practicing, one minute, one topic, fully in Arabic with zero English. I posted videos just to see what would happen. Second video hit 960k views now. I went from 300 followers to 3,200 in less than a month. That one trip did not just teach me something about culture. It showed me a gap in myself I had never seen before, and closing that gap turned into something real.</p>
 
-      <p class="reveal"><strong>For my academic life:</strong> The AI literacies module, specifically the distinction between prompting and dialogue, changed how I approach every tool I use academically. The idea that a multi-turn conversation with an AI teaches you more than a single polished output flipped my default behavior. I stopped treating AI like a vending machine. The module made me realize that the learning happens in the back-and-forth — in the moments where I push back, catch an error, or force a clearer answer. That is a habit I will carry through my thesis and every research task going forward.</p>
+      <p class="reveal"><strong>For my academic life:</strong> The AI literacies module changed how I actually use AI day to day. The big idea was the difference between prompting and dialogue, and once I understood it I could not unsee it. A single prompt and a polished output is the lazy version. The real learning happens when you stay in the conversation, push back, catch where the AI is wrong, and force it to be clearer. I stopped using AI like a vending machine after this module. That shift will carry into my thesis and honestly into every research task I do from here.</p>
 
-      <p class="reveal"><strong>For my social life:</strong> Soliya. I was the only male in my group. At some point in a conversation about wellbeing, I said what I actually thought: that men's mental health gets ignored and it matters. I said it knowing it might land awkwardly. It didn't. Everyone agreed. That moment taught me something about the cost of staying quiet when you're the minority voice in a room. The format of Soliya — no raised hands, no turns, just jumping in — was uncomfortable at first. By the end it felt natural. I carry that into every group conversation now.</p>
+      <p class="reveal"><strong>For my social life:</strong> Soliya was the only time this semester where I was the only guy in the room. At some point the conversation went toward wellbeing and mental health, and I said what I actually thought: that men's mental health gets ignored and it matters. I said it expecting it to be awkward. It was not. Everyone agreed immediately. That moment stayed with me because I almost did not say it. The format of Soliya, no raised hands, no waiting for your turn, just jumping in, was something I had to get used to. By the end it felt more natural than the way I normally communicate. I use that now.</p>
 
       <div class="pull-quote reveal">
-        <p>"I also learned that jumping into a conversation without raising your hand isn't rude. It's participation. That sounds small. It wasn't."</p>
+        <p>"Jumping into a conversation without raising your hand is not rude. It is participation. That sounds obvious. It was not for me."</p>
       </div>
 
-      <p class="reveal"><strong>For my career:</strong> The AI in Your Profession assignment surprised me more than anything else this semester. I went in assuming AI barely touched construction engineering. I was completely wrong. Dr. Mohamed Abdallah walked me through ML applications in water demand forecasting and environmental monitoring. My former TA, Eng. Bassel Harby, had built SetoutAI — a tool that automates real estate feasibility analysis across multiple land plots simultaneously. The gap between where AI is theoretically possible in my industry and where it is actually deployed is enormous. That gap is an opportunity. I now think seriously about whether an AI-assisted infrastructure planning startup is worth pursuing after graduation.</p>
+      <p class="reveal"><strong>For my career:</strong> The AI in Your Profession assignment was the one that surprised me the most. My whole assumption going in was that AI barely touches construction engineering because we are an on-site, physical industry. Both people I interviewed completely dismantled that. Dr. Mohamed Abdallah was using ML for water demand forecasting and environmental monitoring. My former TA Eng. Bassel Harby had built SetoutAI, a tool that takes a set of land plots and automatically figures out which ones give you the highest return and what to build on them. I did not know any of this existed. The gap between what AI can do in my field and what is actually being used right now is massive. That gap is where the opportunity is, and I am seriously thinking about whether there is a startup in there somewhere after I graduate.</p>
 
-      <!-- PART 2 -->
       <span class="section-label reveal" id="work">Part 2 — Three Things I Created</span>
-      <h2 class="reveal">The work I'd show someone</h2>
+      <h2 class="reveal">Not the three things I spent the most time on. The three that actually meant something.</h2>
 
       <div class="card reveal">
         <p class="card-num">01</p>
         <h3><a href="https://reflect.creativitycourse.org/published/what-i-built-what-i-broke-and-what-i-learned-game-final-draft/" target="_blank" rel="noopener">First Week of Corporate — The Game ↗</a></h3>
-        <p>Twelve scenarios pulled directly from my own experience at Siemens. I built a simulator that ran 10,000 random playthroughs to verify all six endings were reachable and balanced. I ran every color pair through the WebAIM Contrast Checker and rewrote scenarios multiple times to eliminate the "obviously correct" answer. This is the piece that showed me what it actually means to build something for someone else — not for a grade, but for a person sitting in front of a screen who you need to keep engaged.</p>
+        <p>I built a narrative game with 12 scenarios pulled from my own first weeks at Siemens. I ran a simulator with 10,000 random playthroughs to make sure all six endings were actually reachable. I checked every single color pair against the WebAIM Contrast Checker for accessibility. I rewrote scenarios multiple times because the first versions had an obviously correct answer and that kills the whole point of a choice-based game. This was the first thing I made this semester that I genuinely wanted other people to play, not just submit.</p>
       </div>
 
       <div class="card reveal">
         <p class="card-num">02</p>
         <h3><a href="https://reflect.creativitycourse.org/published/soliya-reflection-43/" target="_blank" rel="noopener">Soliya Connect Reflection ↗</a></h3>
-        <p>Not because it's the most polished thing I wrote, but because it's the most honest. I wrote about immigration, men's mental health, and code-switching in Arabic. None of those were safe or easy topics to put publicly on a blog. The act of writing them — and choosing not to soften them — was the point.</p>
+        <p>This is not my best writing. It is my most honest writing. I talked about immigration, men's mental health, and the fact that I cannot speak Arabic without mixing in English. None of those were easy things to put on a public blog. I put them there anyway. That was the assignment in a way.</p>
       </div>
 
       <div class="card reveal">
         <p class="card-num">03</p>
         <h3><a href="https://reflect.creativitycourse.org/published/ai-in-your-professsion-construction-engineering/" target="_blank" rel="noopener">AI in Your Profession — Construction Engineering ↗</a></h3>
-        <p>I interviewed a professor and a founder. My starting assumption — that AI barely exists in construction — was completely dismantled by both conversations. The reflection I wrote pushed back on an Anthropic study that claimed minimal observed AI coverage in engineering, using my own interview evidence to challenge it. That kind of critical engagement is what this course asked for throughout the semester.</p>
+        <p>I went in with one assumption and left with the opposite one. I interviewed a professor and a startup founder. Both of them showed me applications of AI in construction I had never heard of. I also pushed back in my reflection on an Anthropic study that claimed minimal AI coverage in my field, because my own interviews said otherwise. That is probably the most critical thinking I did all semester.</p>
       </div>
 
-      <!-- PART 3 -->
       <span class="section-label reveal" id="changes">Part 3 — What I Would Change</span>
       <h2 class="reveal">Honest feedback for the course</h2>
 
       <div class="change-item reveal">
         <span class="change-num">1</span>
-        <p>Start Soliya in Week 2, not mid-semester. The relationships you build there take time to develop into real conversations. Starting earlier would give those conversations room to actually go somewhere. Also: cap each session at one hour. Two hours is long enough that people start clock-watching, and the quality of the last 40 minutes drops noticeably compared to the first 60.</p>
+        <p>Start Soliya in Week 2, not mid-semester. The conversations get good once people are comfortable with each other, and that takes time. Starting it early gives those conversations somewhere to go. Also please cut the sessions to one hour. Two hours is too long and everyone feels it in the second half.</p>
       </div>
 
       <div class="change-item reveal">
         <span class="change-num">2</span>
-        <p>Replace some of the individual written assignments with group projects that carry real weight. The course builds genuine community through classroom activities, but the assignments are almost entirely solo. Heavier collaborative work would make those in-class connections mean something outside the room too, and would better reflect how real professional work actually happens.</p>
+        <p>Add at least one heavy group assignment. Almost everything we submitted was individual work. The course builds real connection in the classroom through activities and the screen setups, but that never carried into the actual graded work. A group project with real weight would change that.</p>
       </div>
 
       <div class="change-item reveal">
         <span class="change-num">3</span>
-        <p>Trim the AI in Your Profession assignment or restructure it as a shorter in-class activity. The assignment itself was valuable, but the total volume of graded work this semester was high. Introducing one structured in-class assessment as a lighter-weight alternative would reduce that load while still testing the same learning in a different mode.</p>
+        <p>Reduce the AI in Your Profession assignment or turn it into something shorter in class. The idea was good. The workload was a lot on top of everything else. One in-class assessment somewhere in the semester would help balance things out.</p>
       </div>
 
-      <!-- PART 4 -->
       <span class="section-label reveal" id="who">Part 4 — Who Should Take This Course</span>
       <h2 class="reveal">In one sentence</h2>
 
-      <p class="reveal">Anyone who thinks a "digital literacies" course will be easy, and who needs to be proven wrong about themselves, their assumptions, and the technology they think they already understand.</p>
+      <p class="reveal">Take this course if you think you already understand technology and you want to find out you do not.</p>
 
-      <!-- PART 5 -->
       <span class="section-label reveal" id="tools">Part 5 — The Digital Tools</span>
-      <h2 class="reveal">What I used, what I'd keep <span style="font-size:13px; font-family:'DM Sans',sans-serif; font-weight:400; color:var(--text-muted);">— tap each card to expand</span></h2>
+      <h2 class="reveal">What I used, what I would keep <span style="font-size:13px;font-family:'DM Sans',sans-serif;font-weight:400;color:var(--text-muted);">— tap each card to expand</span></h2>
 
       <div class="tool-grid reveal">
 
@@ -604,23 +576,23 @@
           <p class="tool-name">reflect.creativitycourse.org</p>
           <p class="verdict verdict-like">Liked</p>
           <p class="tool-summary">First time I had ever blogged publicly.</p>
-          <p class="tool-detail">It forced me to write for a real audience, not just a professor. The concept is right. The interface needs a Gen Z redesign — cleaner, faster, more visual. I would use blogging again for future personal branding work, and I already am through TikTok.</p>
+          <p class="tool-detail">It forced me to write for a real audience, not just a professor. It made me think more carefully about what I was saying. The platform works. The design does not. It needs a full Gen Z overhaul, cleaner, faster, more visual. I am already using what I learned about writing for an audience through my TikTok content.</p>
           <span class="expand-hint" aria-hidden="true">+</span>
         </div>
 
         <div class="tool-card" onclick="toggleTool(this)" role="button" tabindex="0" aria-expanded="false">
           <p class="tool-name">Classroom smart screens</p>
           <p class="verdict verdict-like">Liked</p>
-          <p class="tool-summary">Six screens, groups, real connection.</p>
-          <p class="tool-detail">Being split into groups around 6 screens made me actually talk to classmates I had never spoken to. Someone anonymously wrote that I made them feel listened to. That mattered more than any grade. I plan to use collaborative screen-based tools in any workshop or training I run in the future.</p>
+          <p class="tool-summary">6 screens, groups, real connection.</p>
+          <p class="tool-detail">The setup with 6 screens and rotating groups forced me to actually talk to people I had never spoken to in the whole semester. At some point someone wrote anonymously that I made them feel heard. I did not expect that and it stuck with me. I will use this kind of collaborative setup in any workshop or event I run in the future.</p>
           <span class="expand-hint" aria-hidden="true">+</span>
         </div>
 
         <div class="tool-card" onclick="toggleTool(this)" role="button" tabindex="0" aria-expanded="false">
           <p class="tool-name">WebAIM Contrast Checker</p>
           <p class="verdict verdict-like">Liked</p>
-          <p class="tool-summary">Accessibility I never thought about.</p>
-          <p class="tool-detail">I had never thought about accessibility in design before this course. Running 12 color pairs through the WCAG formula for my game changed how I think about visual design entirely. Now I run every presentation and slide deck through it. Small tool, permanent habit. Link: <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">webaim.org/resources/contrastchecker</a></p>
+          <p class="tool-summary">Accessibility I had never thought about.</p>
+          <p class="tool-detail">Before this course I had genuinely never thought about color accessibility. Then I had to run 12 color pairs through the WCAG contrast formula for my game and it changed how I look at every slide deck and presentation I make. I still use it now. It takes 30 seconds and there is no reason not to. Link: <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">webaim.org/resources/contrastchecker</a></p>
           <span class="expand-hint" aria-hidden="true">+</span>
         </div>
 
@@ -628,7 +600,7 @@
           <p class="tool-name">Slack</p>
           <p class="verdict verdict-like">Liked</p>
           <p class="tool-summary">Felt like Discord. Lowered every barrier.</p>
-          <p class="tool-detail">The familiar interface made it easy to reach the professor informally without it feeling unprofessional. That informal access is what got me a recommendation letter for the Parents Association Cup — I passed the first round interviews and move to the finals on June 1. I already use Slack at Siemens and will keep using it professionally.</p>
+          <p class="tool-detail">It felt exactly like Discord which I already use with friends for gaming, so I was comfortable with it immediately. What mattered most was being able to message the professor in a way that felt direct without being weird. That channel is literally what got me a recommendation letter for the Parents Association Cup. I passed the first round and the finals are June 1.</p>
           <span class="expand-hint" aria-hidden="true">+</span>
         </div>
 
@@ -636,29 +608,28 @@
           <p class="tool-name">QuickDraw (Google AI)</p>
           <p class="verdict verdict-mixed">Mixed</p>
           <p class="tool-summary">The AI never guessed my drawings right.</p>
-          <p class="tool-detail">I thought my drawings were bad. The professor reframed it: what if the AI is the one that's wrong? What if it learned on a different set of shapes than what I drew? That single reframe is now how I approach any AI output I'm unsure about. The tool itself is simple, but the lesson it unlocked was not.</p>
+          <p class="tool-detail">I assumed I was just bad at drawing. My professor reframed it completely: what if the AI is the problem? What if it was trained on a different way of drawing things than how I drew them? That one reframe is now how I approach any AI output I am not sure about. I do not assume I am wrong first anymore.</p>
           <span class="expand-hint" aria-hidden="true">+</span>
         </div>
 
         <div class="tool-card" onclick="toggleTool(this)" role="button" tabindex="0" aria-expanded="false">
           <p class="tool-name">Elicit</p>
           <p class="verdict verdict-like">Liked</p>
-          <p class="tool-summary">Research without perfect keywords.</p>
-          <p class="tool-detail">Genuinely useful for finding relevant academic papers without needing exact keyword matches, summarizing takeaways specific to a question, and extracting structured data from PDFs. I will use it for my thesis. The interface is outdated and that is the main barrier to wider student adoption. A redesign would help it reach people who won't sit with anything that looks old.</p>
+          <p class="tool-summary">Research without needing perfect keywords.</p>
+          <p class="tool-detail">I used it once in a session and immediately saw the value. You can find relevant research papers without needing the perfect search terms, get summaries targeted to your specific question, and pull structured data out of PDFs. I will use this for my thesis. The only thing holding it back is the interface. It looks outdated and that is enough to make most students ignore it.</p>
           <span class="expand-hint" aria-hidden="true">+</span>
         </div>
 
       </div>
 
-      <!-- PART 6 -->
       <span class="section-label reveal" id="intercultural">Part 6 — Intercultural Experiences</span>
       <h2 class="reveal">Soliya, Tahrir, Equity Unbound</h2>
 
-      <p class="reveal">Soliya gave me a framework I didn't have before for how to exist in a global conversation. Not just the mechanics — jumping in without a raised hand, navigating disagreement with curiosity — but the emotional weight of being a minority voice and choosing to speak anyway. The immigration topic landed differently when I had to answer my own interview questions. What would have made it better: starting earlier in the semester, and shorter sessions. Two hours is too long to stay genuinely present.</p>
+      <p class="reveal">Soliya was genuinely one of the best experiences I have had at AUC. Talking to people from completely different countries about immigration, mental health, and how we see the world was something I did not know I needed. The format pushed me in ways a classroom never does. What would have made it better: start it earlier and cut the session length. Two hours is too much. The energy drops and everyone knows it.</p>
 
-      <p class="reveal">The Equity Unbound session on AI and faculty responsibility introduced something I had genuinely never considered: that professors and institutions have their own obligations around how they use AI, not just students. The breakout room structure worked well. Hearing how people in different roles processed the same scenario showed me how much context shapes ethical reasoning. What I would have changed: more time in the breakout rooms before returning to plenary. The transition back always felt too fast, just as the conversation was getting somewhere real.</p>
+      <p class="reveal">The Equity Unbound session on how faculty should be using AI was something I had never even thought about before walking in. I always thought about AI responsibility from the student side. Sitting in a breakout room and working through the same scenario with people from different roles showed me how differently people think about the same problem depending on where they sit. I wanted more time in those rooms. The transition back to the full group always happened right when things were getting interesting.</p>
 
-      <p class="reveal">The Tahrir trip I've described in Part 1. What would have made it better: more preparation beforehand. Knowing in advance that I would be speaking only Arabic — even 30 minutes of thinking about it — would have let me be more present instead of caught off guard. The surprise turned out to be useful. But intentional design would have been better than accidental discovery.</p>
+      <p class="reveal">The Tahrir trip I already talked about in Part 1. The one thing that would have made it better is more preparation. If someone had told me in advance that I would only be speaking Arabic, I would have had time to mentally prepare. The surprise was useful in the end. But I would have gotten more out of it if it was designed that way on purpose instead of just happening.</p>
 
       <div class="signoff reveal">
         <p>With full honesty,</p>
@@ -670,30 +641,26 @@
   </div>
 
   <script>
-    // PROGRESS BAR
     const bar = document.getElementById('progress-bar');
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = (scrollTop / docHeight * 100) + '%';
-    });
+    }, { passive: true });
 
-    // FADE-IN ON SCROLL
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('visible');
-          observer.unobserve(e.target);
+          revealObserver.unobserve(e.target);
         }
       });
-    }, { threshold: 0.08 });
-    reveals.forEach(el => observer.observe(el));
+    }, { threshold: 0.07 });
+    revealEls.forEach(el => revealObserver.observe(el));
 
-    // ACTIVE TOC LINK
-    const sections = ['learning', 'work', 'changes', 'who', 'tools', 'intercultural'];
+    const sections = ['learning','work','changes','who','tools','intercultural'];
     const tocLinks = document.querySelectorAll('#sidebar-nav a');
-
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -703,13 +670,11 @@
         }
       });
     }, { rootMargin: '-20% 0px -70% 0px' });
-
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) sectionObserver.observe(el);
     });
 
-    // TOOL CARD TOGGLE
     function toggleTool(card) {
       const isOpen = card.classList.contains('open');
       document.querySelectorAll('.tool-card.open').forEach(c => {
